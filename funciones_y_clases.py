@@ -188,7 +188,6 @@ class Persona:
     return self.NombreCompleto
 
 
-
 # Crear una clase llamada `Persona1` que herede de la clase `Persona`, y que en su
 # constructor reciba además de los atributos del padre, una variable tipo 
 # `datetime` como 3er argumento para guardar en atributo `fecha_nacimiento`.

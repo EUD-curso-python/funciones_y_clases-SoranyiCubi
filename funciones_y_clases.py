@@ -1,13 +1,15 @@
 global1 = 34
 
-def cambiar_global():
+def cambiar_global(1):
     '''Cambiar una variable global
 
     Esta función debe asignarle a la variable global `global1` el valor que se
     le pasa como único argumento posicional.
     '''
-    pass
-
+    # pass
+    global global1
+    global1 = 1
+    print(global1)
 
 def anio_bisiesto():
     '''Responder si el entero pasado como argumento es un año bisiesto
@@ -21,8 +23,13 @@ def anio_bisiesto():
 
     Retorna True o False
     '''
-    pass
-
+   # pass
+ if anio % 400 == 0 or (anio % 100 != 0 and anio % 4 == 0):
+  return True
+ else:
+  return False
+ print(anio_bisiesto(2021))
+ 
 def contar_valles():
     r'''Contar el número de valles
 
@@ -41,7 +48,26 @@ def contar_valles():
     representados en la lista, que para el ejemplo que se acaba de mostrar es
     de 3 valles.
     '''
-    pass
+   # pass
+horasValles=0
+    for i, elemento in enumerate(ListaInput):
+      if i==0:
+        continue
+      else:
+        if ListaInput[i] == 1 and ListaInput[i-1] == -1:
+          horasValles = horasValles + 1
+        if ListaInput[i]==1 and ListaInput[i-1] == 0:
+            x=i-1
+            while x != 0:
+              if ListaInput[x] == -1:
+                horasValles = horasValles + 1
+                break
+              elif ListaInput[x] == 1:
+                break
+              else:
+                x = x-1
+    return ContValles
+  
 
 def saltando_rocas():
     '''Mínimo número de saltos en las rocas
@@ -69,7 +95,39 @@ def pares_medias():
     uno de los colores que se encuentren en la lista, y los valores son la 
     cantidad de pares que se han encontrado para cada color.
     '''
-    pass
+    # pass
+Position = 0
+    Media1 = 0
+    Media2 = 0
+    Tamanio = len(ListaInput)
+    Verificar = False
+    Diccionar  ={}
+    Key = 0 
+        
+        while Tamanio != 0:
+      Verificar=False
+      Media1 = ListaInput[Position]
+
+      for i, elemento in enumerate(ListaInput):
+        if i == 0:
+          continue
+        if ListaInput[i] == Media1:
+          Media2 = i
+          Verificar = True
+          break
+        
+      if Verificar==True:
+        Aux = ListaInput.pop(SegundaMedia)
+        Aux = ListaInput.pop(Position)
+        Key=Diccionar.get(PrimerMedia, 0)
+        Key=Key+1
+        Diccionar[Media1] = Key
+      else:
+        Aux = ListaInput.pop(Position)
+      
+      Tamanio=len(ListaInput)
+    
+    return Diccionar
 
 # Crear una clase llamada `ListaComa` que reciba en su constructor un iterable
 # con el valor inicial para una lista que se guardará en un atributo llamado 

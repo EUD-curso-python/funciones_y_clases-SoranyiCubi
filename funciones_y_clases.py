@@ -135,8 +135,15 @@ Position = 0
 # los elementos del atributo `lista` unidos a través de comas. Ejemplo:
 # si `lista` es [1,2,3,4], __str__ debe devolver '1,2,3,4'
 
+class ListaComa:
+  
+  def __init__(self,ListaInput):
+    self.Aux=""
+    for el in ListaInput:
+      self.Aux= self.Aux + "," + str(el)
 
-
+  def __str__(self):
+    return self.Aux[1:]
 
 # Crear una clase llamada `Persona` que reciba en su constructor como 1er 
 # argumento un iterable con el valor inicial para una lista que se guardará en
@@ -154,7 +161,31 @@ Position = 0
 # si `nombres` es ['Juan', 'David'] y `apellidos` es ['Torres', 'Salazar'],
 # el método `nombre completo` debe devolver  'Juan David Torres Salazar'
 
+class Persona:
+  
+  def __init__(self,ListaNombres,ListaApellidos):
+    self.NombreCompleto=""
+    self.nombres=ListaNombres
+    self.apellidos=ListaApellidos
 
+
+    for i, elemento in enumerate(self.nombres):
+      self.nombres[i]= str(self.nombres[i])
+      self.nombres[i]= self.nombres[i].capitalize() 
+    
+    for i, elemento in enumerate(self.apellidos):
+      self.apellidos[i]= str(self.apellidos[i])
+      self.apellidos[i]= self.apellidos[i].capitalize() 
+
+  def nombre_completo(self):
+    for el in self.nombres:
+      self.NombreCompleto=self.NombreCompleto + " " + el
+
+    for el in self.apellidos:
+      self.NombreCompleto=self.NombreCompleto + " " + el
+    
+    self.NombreCompleto=self.NombreCompleto.strip()
+    return self.NombreCompleto
 
 
 
@@ -169,3 +200,24 @@ Position = 0
 # si `fecha_nacimiento` es 1985-10-21 y la fecha actual es 2020-10-20, el método
 # `edad` debe devover 35.
 
+class Persona1(Persona):
+  
+  def __init__(self,ListaNombres,ListaApellidos,FecNacimiento):
+    Persona.__init__(self,ListaNombres,ListaApellidos)
+    self.ANacimiento=FecNacimiento.year
+    self.MNacimiento=FecNacimiento.month
+    self.DNacimiento=FecNacimiento.day
+    self.DiferenciaEdad = int(datetime.date.today().year) - int(self.ANacimiento)
+
+  def edad(self):
+    if self.MNacimiento < datetime.date.today().month:
+      self.DiferenciaEdad=self.DiferenciaEdad-1
+    elif self.MNacimiento == datetime.date.today().month:
+      if self.DNacimiento < datetime.date.today().day:
+        self.DiferenciaEdad=self.DiferenciaEdad-1
+  
+    return self.DiferenciaEdad
+
+Jose=Persona1(['Juan', 'David'], ['Torres', 'Salazar'],datetime.date(1985, 2, 27))
+x=int(Jose.edad())
+print(x)

@@ -1,12 +1,12 @@
 global1 = 34
 
-def cambiar_global(1):
+def cambiar_global():
     '''Cambiar una variable global
 
     Esta función debe asignarle a la variable global `global1` el valor que se
     le pasa como único argumento posicional.
     '''
-    # pass
+    pass
     global global1
     global1 = 1
     print(global1)
@@ -23,15 +23,18 @@ def anio_bisiesto():
 
     Retorna True o False
     '''
-   # pass
- if anio % 400 == 0 or (anio % 100 != 0 and anio % 4 == 0):
-  return True
- else:
-  return False
- print(anio_bisiesto(2021))
+    pass
+    if anio % 4 != 0:
+      return False
+    elif anio % 4 == 0 and anio % 100 != 0: 
+      return True
+    elif anio % 4 == 0 and anio % 100 == 0 and anio % 400 != 0: 
+      return False
+    elif anio % 4 == 0 and anio % 100 == 0 and anio % 400 == 0: 
+      return True
  
 def contar_valles():
-    r'''Contar el número de valles
+  '''Contar el número de valles
 
     Esta función debe recibir como argumento una lista de -1's, 0's y 1's, y lo 
     que representan son las subidas y las bajadas en una ruta de caminata. -1
@@ -48,26 +51,25 @@ def contar_valles():
     representados en la lista, que para el ejemplo que se acaba de mostrar es
     de 3 valles.
     '''
-   # pass
-horasValles=0
-    for i, elemento in enumerate(ListaInput):
+    pass
+    ContValles=0
+     for i, elemento in enumerate(ListaInput):
       if i==0:
         continue
       else:
-        if ListaInput[i] == 1 and ListaInput[i-1] == -1:
-          horasValles = horasValles + 1
-        if ListaInput[i]==1 and ListaInput[i-1] == 0:
+        if ListaInput[i]==1 and ListaInput[i-1]==-1:
+          ContValles=ContValles+1
+        if ListaInput[i]==1 and ListaInput[i-1]==0:
             x=i-1
             while x != 0:
-              if ListaInput[x] == -1:
-                horasValles = horasValles + 1
+              if ListaInput[x]==-1:
+                ContValles=ContValles+1
                 break
-              elif ListaInput[x] == 1:
+              elif ListaInput[x]==1:
                 break
               else:
-                x = x-1
-    return ContValles
-  
+                x=x-1
+return ContValles
 
 def saltando_rocas():
     '''Mínimo número de saltos en las rocas
@@ -83,7 +85,7 @@ def saltando_rocas():
     El objetivo es devolver el número mínimo de saltos que debe realizar el 
     jugador para ganar la partida
     '''
-    pass
+    #pass
 
 def pares_medias():
     '''Contar pares de medias
@@ -95,16 +97,16 @@ def pares_medias():
     uno de los colores que se encuentren en la lista, y los valores son la 
     cantidad de pares que se han encontrado para cada color.
     '''
-    # pass
-Position = 0
-    Media1 = 0
-    Media2 = 0
-    Tamanio = len(ListaInput)
-    Verificar = False
-    Diccionar  ={}
-    Key = 0 
+    pass
+    Position=0
+    Media1=0
+    Media2=0
+    Tamanio=len(ListaInput)
+    Verificar=False
+    Diccionar={}
+    Key=0 
         
-        while Tamanio != 0:
+while Tamanio != 0:
       Verificar=False
       Media1 = ListaInput[Position]
 
@@ -126,15 +128,15 @@ Position = 0
         Aux = ListaInput.pop(Position)
       
       Tamanio=len(ListaInput)
-    
-    return Diccionar
+       
+return Diccionar
 
-# Crear una clase llamada `ListaComa` que reciba en su constructor un iterable
+'''Crear una clase llamada `ListaComa` que reciba en su constructor un iterable
 # con el valor inicial para una lista que se guardará en un atributo llamado 
 # `lista`. Implementar el método __str__ para que devuelva un string con todos
 # los elementos del atributo `lista` unidos a través de comas. Ejemplo:
 # si `lista` es [1,2,3,4], __str__ debe devolver '1,2,3,4'
-
+'''
 class ListaComa:
   
   def __init__(self,ListaInput):
@@ -145,7 +147,7 @@ class ListaComa:
   def __str__(self):
     return self.Aux[1:]
 
-# Crear una clase llamada `Persona` que reciba en su constructor como 1er 
+'''Crear una clase llamada `Persona` que reciba en su constructor como 1er 
 # argumento un iterable con el valor inicial para una lista que se guardará en
 # un atributo llamado `nombres` y como 2do argumento un iterable con el valor 
 # inicial para una lista que se guardará en un atributo llamado `apellidos`.
@@ -160,7 +162,7 @@ class ListaComa:
 # Ejemplo:
 # si `nombres` es ['Juan', 'David'] y `apellidos` es ['Torres', 'Salazar'],
 # el método `nombre completo` debe devolver  'Juan David Torres Salazar'
-
+'''
 class Persona:
   
   def __init__(self,ListaNombres,ListaApellidos):
@@ -188,7 +190,7 @@ class Persona:
     return self.NombreCompleto
 
 
-# Crear una clase llamada `Persona1` que herede de la clase `Persona`, y que en su
+'''Crear una clase llamada `Persona1` que herede de la clase `Persona`, y que en su
 # constructor reciba además de los atributos del padre, una variable tipo 
 # `datetime` como 3er argumento para guardar en atributo `fecha_nacimiento`.
 #
@@ -198,7 +200,7 @@ class Persona:
 # Ejemplo:
 # si `fecha_nacimiento` es 1985-10-21 y la fecha actual es 2020-10-20, el método
 # `edad` debe devover 35.
-
+'''
 class Persona1(Persona):
   
   def __init__(self,ListaNombres,ListaApellidos,FecNacimiento):
